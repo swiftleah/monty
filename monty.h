@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* Structs: */
 
@@ -40,6 +41,6 @@ typedef struct instruction_s
 
 void push_node(stack_t **stack, int n);
 void pall_node(stack_t **stack);
-
+int main(int argc, char *argv[]);
 
 #endif
