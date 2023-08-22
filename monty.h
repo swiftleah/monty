@@ -38,7 +38,8 @@ typedef struct instruction_s
 
 /* Prototypes: */
 
-
+void push_node(stack_t **stack, int n);
+void pall_node(stack_t **stack);
 
 
 #endif
