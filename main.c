@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	unsigned int line_num = 0;
 	FILE *file;
-	char line[256], opcode[100];
+	char line[256], opcode[100], argument_str[20];
 	int argument;
 
 	if (argc != 2)
@@ -29,13 +29,18 @@ int main(int argc, char *argv[])
 		{
 			if (strcmp(opcode, "push") == 0)
 			{
-				if (sscanf(line, "push %d", &argument) == 1)
-					push_node(&stack, argument);
-				else
+				if (sscanf(line, "push %19s", argument_str) == 1)
 				{
-					fprintf(stderr, "L%d: usage: push integer\n", line_num);
-					exit(EXIT_FAILURE);
+					argument = atoi(argument_str);
+					if (argument == 0 && strcmp(argument_str, "0") != 0)
+					{
+						fprintf(stderr, "L%d: usage: push integer\n", line_num);
+						exit(EXIT_FAILURE);
+					}
+					push_node(&stack, argument);
 				}
+				else
+					exit(EXIT_FAILURE);
 			}
 			else if (strcmp(opcode, "pall$") == 0)
 				pall_node(&stack);
