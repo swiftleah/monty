@@ -56,6 +56,8 @@ int main(int argc, char *argv[])
 				continue;
 			else if (strcmp(opcode, "div") == 0)
 				divide_elements(&stack, line_num);
+			else if (strcmp(opcode, "sub") == 0)
+				subtract_elements(&stack, line_num);
 			else
 			{
 				fprintf(stdout, "L%d: unknown instruction %s\n", line_num, opcode);
