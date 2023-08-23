@@ -18,4 +18,5 @@ void pall_node(stack_t **stack)
 		printf("%d\n", current->n);
 		current = current->next;
 	}
+	free(current);
 }

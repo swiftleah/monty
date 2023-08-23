@@ -42,5 +42,6 @@ typedef struct instruction_s
 void push_node(stack_t **stack, int n);
 void pall_node(stack_t **stack);
 int main(int argc, char *argv[]);
+void free_stack(stack_t *stack);
 
 #endif
