@@ -11,14 +11,11 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	unsigned int line_num = 0;
 	FILE *file;
-	char line[256], opcode[100], argument_str[20];
+	char line[256], opcode[100];
 	int argument;
 
 	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+		usagemonty_error();
 	file = fopen(argv[1], "r");
 	if (!file)
 	{
@@ -32,13 +29,13 @@ int main(int argc, char *argv[])
 		{
 			if (strcmp(opcode, "push") == 0)
 			{
-				if (sscanf(line, "push %19s", argument_str) == 1)
-				{
-					argument = atoi(argument_str);
+				if (sscanf(line, "push %d", &argument) == 1)
 					push_node(&stack, argument);
-				}
 				else
+				{
+					fprintf(stderr, "L%d: usage: push integer\n", line_num);
 					exit(EXIT_FAILURE);
+				}
 			}
 			else if (strcmp(opcode, "pall$") == 0)
 				pall_node(&stack);
