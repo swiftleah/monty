@@ -34,10 +34,8 @@ int main(int argc, char *argv[])
 			if (strcmp(opcode, "push") == 0)
 			{
 				token = strtok(NULL, " \t\n$");
-				if (token)
-				{
-					if (kstrtoint(token, 10, &argument) == 0)
-						push_node(&stack, argument);
+				if (token && sscanf(token, "%d", &argument) == 1)
+					push_node(&stack, argument);
 				else
 				{
 					fprintf(stderr, "L%d: usage: push integer\n", line_num);
