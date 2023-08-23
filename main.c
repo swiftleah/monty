@@ -50,6 +50,8 @@ int main(int argc, char *argv[])
 				pop_node(&stack, line_num);
 			else if (strcmp(opcode, "swap") == 0)
 				swap_element(&stack, line_num);
+			else if (strcmp(opcode, "add") == 0)
+				add_element(&stack, line_num);
 			else
 			{
 				fprintf(stdout, "L%d: unknown instruction %s\n", line_num, opcode);
