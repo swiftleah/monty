@@ -6,9 +6,10 @@
  * Return: nothing
  */
 
-void pop_node(stack_t **stack, unsigned int line_num)
+int pop_node(stack_t **stack, unsigned int line_num)
 {
-	stack_t *top;
+	stack_t *temp;
+	int value;
 
 	if (*stack == NULL)
 	{
@@ -16,11 +17,19 @@ void pop_node(stack_t **stack, unsigned int line_num)
 		exit(EXIT_FAILURE);
 	}
 
-	top = *stack;
+	/**top = *stack;
 	*stack = top->next;
 
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
 
-	free(top);
+	free(top);*/
+	value = (*stack)->n;
+    temp = *stack;
+    *stack = (*stack)->next;
+    if (*stack)
+        (*stack)->prev = NULL;
+    free(temp);
+    
+    return value;
 }
