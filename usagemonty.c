@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * usagemonty - prints error message and exits
+ * usagemonty_error - prints error message and exits
  * Return: exit failure
  */
 void usagemonty_error(void)
