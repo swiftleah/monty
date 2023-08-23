@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 				pall_node(&stack);
 			else
 			{
-				printf("L%d: unknown instruction %s\n", line_num, opcode);
+				fprintf(stdout, "L%d: unknown instruction %s\n", line_num, opcode);
 				exit(EXIT_FAILURE);
 			}
 		}
