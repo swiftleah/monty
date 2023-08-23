@@ -45,5 +45,6 @@ int main(int argc, char *argv[]);
 void free_stack(stack_t *stack);
 void usagemonty_error(void);
 void pint_node(stack_t *stack, unsigned int line_num);
+void pop_node(stack_t **stack, unsigned int line_num);
 
 #endif
