@@ -11,7 +11,7 @@ void pall_node(stack_t **stack)
 	stack_t *current = *stack;
 
 	if (*stack == NULL)
-		return;
+		exit(EXIT_FAILURE);
 
 	while (current != NULL)
 	{
