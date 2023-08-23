@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	unsigned int line_num = 0;
 	FILE *file;
-	char line[256], opcode[100];
+	char line[256], opcode[100], *token;
 	int argument;
 
 	if (argc != 2)
@@ -25,11 +25,16 @@ int main(int argc, char *argv[])
 	while (fgets(line, sizeof(line), file))
 	{
 		line_num++;
+		token = strtok(line, " \t\n$");
+
+		if (token == NULL || token[0] == '#')
+			continue;
 		if (sscanf(line, "%99s", opcode) == 1)
 		{
 			if (strcmp(opcode, "push") == 0)
 			{
-				if (sscanf(line, "push %d", &argument) == 1)
+				token = strtok(NULL, " \t\n$");
+				if (token && sscanf(token, "%d", &argument) == 1)
 					push_node(&stack, argument);
 				else
 				{
@@ -37,7 +42,7 @@ int main(int argc, char *argv[])
 					exit(EXIT_FAILURE);
 				}
 			}
-			else if (strcmp(opcode, "pall$") == 0)
+			else if (strcmp(opcode, "pall") == 0)
 				pall_node(&stack);
 			else
 			{
