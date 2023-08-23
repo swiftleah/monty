@@ -12,13 +12,13 @@ int main(int argc, char *argv[])
 	char line[256];
 	unsigned int line_num = 0;
 	FILE *file;
-	char opcode[64];
+	char opcode[100];
 	int argument;
 
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		return (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
 	if (!file)
@@ -30,14 +30,26 @@ int main(int argc, char *argv[])
 	while (fgets(line, sizeof(line), file))
 	{
 		line_num++;
-		if (sscanf(line, "%63s %d", opcode, &argument) == 2)
+		if (sscanf(line, "%99s", opcode) == 1)
 		{
 			if (strcmp(opcode, "push") == 0)
-				push_node(&stack, argument);
+			{
+				if (sscanf(line, "push %d", &argument) == 1)
+				{
+					printf("Pushing\n");
+					push_node(&stack, argument);
+				}
+				else
+					exit(EXIT_FAILURE);
+			}
 			else if (strcmp(opcode, "pall") == 0)
+			{
+				printf("Palling\n");
 				pall_node(&stack);
+			}
 		}
 	}
 	fclose(file);
+	printf("Closed file\n");
 	return (EXIT_SUCCESS);
 }
