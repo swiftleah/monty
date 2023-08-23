@@ -9,7 +9,6 @@
 void pall_node(stack_t **stack)
 {
 	stack_t *current = *stack;
-	printf("In pall function\n");
 
 	while (current != NULL)
 	{

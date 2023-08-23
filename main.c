@@ -35,21 +35,19 @@ int main(int argc, char *argv[])
 			if (strcmp(opcode, "push") == 0)
 			{
 				if (sscanf(line, "push %d", &argument) == 1)
-				{
-					printf("Pushing\n");
 					push_node(&stack, argument);
-				}
 				else
 					exit(EXIT_FAILURE);
 			}
-			else if (strcmp(opcode, "pall") == 0)
-			{
-				printf("Palling\n");
+			else if (strcmp(opcode, "pall$") == 0)
 				pall_node(&stack);
+			else
+			{
+				printf("L%d: unknown instruction %s\n", line_num, opcode);
+				exit(EXIT_FAILURE);
 			}
 		}
 	}
 	fclose(file);
-	printf("Closed file\n");
 	return (EXIT_SUCCESS);
 }
