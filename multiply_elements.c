@@ -6,7 +6,7 @@
  * Return: nothing
  */
 
-void multiply_element(stack_t **stack, unsigned int line_num)
+void multiply_elements(stack_t **stack, unsigned int line_num)
 {
 	stack_t *temp;
 	int sum = 0;
@@ -21,7 +21,7 @@ void multiply_element(stack_t **stack, unsigned int line_num)
 
 	temp = *stack;
 	*stack = (*stack)->next;
-	(*stck)->prev = NULL;
+	(*stack)->prev = NULL;
 	free(temp);
 
 	(*stack)->n = sum;
