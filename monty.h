@@ -53,6 +53,7 @@ void divide_elements(stack_t **stack, unsigned int line_num);
 void subtract_elements(stack_t **stack, unsigned int line_num);
 void multiply_elements(stack_t **stack, unsigned int line_num);
 void mod_elements(stack_t **stack, unsigned int line_num);
+void pchar_element(stack_t *stack, unsigned int line_num);
 
 /* Error Functions to make main shorter: */
 void usagemonty_error(void);
