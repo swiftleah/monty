@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
 				if (token)
 				{
 					int argument = atoi(token);
+
 					push_node(&stack, argument);
 				}
 				else
