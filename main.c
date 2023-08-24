@@ -40,10 +40,7 @@ int main(int argc, char *argv[])
 					if (*endptr == '\0' && endptr != token)
 						push_node(&stack, (int) argument);
 					else
-					{
-						fprintf(stderr, "L%d: usage: push integer\n", line_num);
-						exit(EXIT_FAILURE);
-					}
+						pushint_error(line_num);
 				}
 				else
 				{

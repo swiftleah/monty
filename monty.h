@@ -58,5 +58,6 @@ void print_string(stack_t *stack);
 
 /* Error Functions to make main shorter: */
 void usagemonty_error(void);
+void pushint_error(unsigned int line_num);
 
 #endif
