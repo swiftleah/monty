@@ -64,6 +64,8 @@ int main(int argc, char *argv[])
 				mod_elements(&stack, line_num);
 			else if (strcmp(opcode, "pchar") == 0)
 				pchar_element(stack, line_num);
+			else if (strcmp(opcode, "pstr") == 0)
+				print_string(stack);
 			else
 			{
 				fprintf(stdout, "L%d: unknown instruction %s\n", line_num, opcode);
