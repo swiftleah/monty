@@ -39,7 +39,6 @@ typedef struct instruction_s
 } instruction_t;
 
 /* Prototypes: */
-
 void push_node(stack_t **stack, int n);
 void pall_node(stack_t **stack);
 int main(int argc, char *argv[]);
@@ -48,9 +47,12 @@ void usagemonty_error(void);
 void pint_node(stack_t *stack, unsigned int line_num);
 void pop_node(stack_t **stack, unsigned int line_num);
 void swap_element(stack_t **stack, unsigned int line_num);
+
+/* Mathematical Functions: */
 void add_element(stack_t **stack, unsigned int line_num);
 void divide_elements(stack_t **stack, unsigned int line_num);
 void subtract_elements(stack_t **stack, unsigned int line_num);
 void multiply_elements(stack_t **stack, unsigned int line_num);
+void mod_elements(stack_t **stack, unsigned int line_num);
 
 #endif

@@ -60,6 +60,8 @@ int main(int argc, char *argv[])
 				subtract_elements(&stack, line_num);
 			else if (strcmp(opcode, "mul") == 0)
 				multiply_elements(&stack, line_num);
+			else if (strcmp(opcode, "mod") == 0)
+				mod_elements(&stack, line_num);
 			else
 			{
 				fprintf(stdout, "L%d: unknown instruction %s\n", line_num, opcode);
