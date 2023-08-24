@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	unsigned int line_num = 0;
 	FILE *file;
-	char line[256], opcode[100], *token;
+	char line[256], opcode[100], *token, *endptr;
 
 	if (argc != 2)
 		usagemonty_error();
@@ -35,9 +35,12 @@ int main(int argc, char *argv[])
 				token = strtok(NULL, " \t\n$");
 				if (token)
 				{
-					int argument = atoi(token);
+					long int argument = strtol(token, &endptr, 10);
 
-					push_node(&stack, argument);
+					if (*endptr == '\0' && endptr != token)
+						push_node(&stack, argument);
+					else
+						pushint_error(line_num);
 				}
 				else
 					pushint_error(line_num);
