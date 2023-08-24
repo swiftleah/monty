@@ -69,6 +69,8 @@ int main(int argc, char *argv[])
 				pchar_element(stack, line_num);
 			else if (strcmp(opcode, "pstr") == 0)
 				print_string(stack);
+			else if (strcmp(opcode, "rotl") == 0)
+				rotl_node(&stack);
 			else
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n", line_num, opcode);

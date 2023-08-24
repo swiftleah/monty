@@ -46,6 +46,7 @@ void free_stack(stack_t *stack);
 void pint_node(stack_t *stack, unsigned int line_num);
 void pop_node(stack_t **stack, unsigned int line_num);
 void swap_element(stack_t **stack, unsigned int line_num);
+void rotl_node(stack_t **stack);
 
 /* Mathematical Functions: */
 void add_element(stack_t **stack, unsigned int line_num);
