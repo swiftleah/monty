@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
 	unsigned int line_num = 0;
 	FILE *file;
 	char line[256], opcode[100], *token, *endptr;
-	long int argument = strtol(token, &endptr, 10);
 
 	if (argc != 2)
 		usagemonty_error();
@@ -36,6 +35,8 @@ int main(int argc, char *argv[])
 				token = strtok(NULL, " \t\n$");
 				if (token)
 				{
+					long int argument = strtol(token, &endptr, 10);
+
 					if (*endptr == '\0' && endptr != token)
 						push_node(&stack, argument);
 					else
