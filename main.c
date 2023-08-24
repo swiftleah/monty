@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
 	unsigned int line_num = 0;
 	FILE *file;
 	char line[256], opcode[100], *token;
-	int argument;
 
 	if (argc != 2)
 		usagemonty_error();
@@ -34,8 +33,18 @@ int main(int argc, char *argv[])
 			if (strcmp(opcode, "push") == 0)
 			{
 				token = strtok(NULL, " \t\n$");
-				if (token && sscanf(token, "%d", &argument) == 1)
-					push_node(&stack, argument);
+				if (token)
+				{
+					char *endptr;
+					long int argument = strtol(token, &endptr, 10);
+					if (*endptr == '\0' && endptr != token)
+						push_node(&stack, (int) argument);
+					else
+					{
+						fprintf(stderr, "L%d: usage: push integer\n", line_num);
+						exit(EXIT_FAILURE);
+					}
+				}
 				else
 				{
 					fprintf(stderr, "L%d: usage: push integer\n", line_num);
