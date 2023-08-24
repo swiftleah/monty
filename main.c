@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 				print_string(stack);
 			else
 			{
-				fprintf(stdout, "L%d: unknown instruction %s\n", line_num, opcode);
+				fprintf(stderr, "L%d: unknown instruction %s\n", line_num, opcode);
 				exit(EXIT_FAILURE);
 			}
 		}
