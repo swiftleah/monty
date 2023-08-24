@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 					long int argument = strtol(token, &endptr, 10);
 
 					if (*endptr == '\0' && endptr != token)
-						push_node(&stack, (int) argument);
+						push_node(&stack, argument);
 					else
 						pushint_error(line_num);
 				}
