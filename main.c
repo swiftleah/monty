@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 				{
 					char *endptr;
 					long int argument = strtol(token, &endptr, 10);
+
 					if (*endptr == '\0' && endptr != token)
 						push_node(&stack, (int) argument);
 					else
