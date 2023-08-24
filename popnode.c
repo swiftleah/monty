@@ -22,5 +22,4 @@ void pop_node(stack_t **stack, unsigned int line_num)
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
 
-	free(top);
 }
