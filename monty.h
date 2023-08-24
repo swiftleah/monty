@@ -43,7 +43,6 @@ void push_node(stack_t **stack, int n);
 void pall_node(stack_t **stack);
 int main(int argc, char *argv[]);
 void free_stack(stack_t *stack);
-void usagemonty_error(void);
 void pint_node(stack_t *stack, unsigned int line_num);
 void pop_node(stack_t **stack, unsigned int line_num);
 void swap_element(stack_t **stack, unsigned int line_num);
@@ -54,5 +53,8 @@ void divide_elements(stack_t **stack, unsigned int line_num);
 void subtract_elements(stack_t **stack, unsigned int line_num);
 void multiply_elements(stack_t **stack, unsigned int line_num);
 void mod_elements(stack_t **stack, unsigned int line_num);
+
+/* Error Functions to make main shorter: */
+void usagemonty_error(void);
 
 #endif
