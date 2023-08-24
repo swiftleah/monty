@@ -71,6 +71,8 @@ int main(int argc, char *argv[])
 				print_string(stack);
 			else if (strcmp(opcode, "rotl") == 0)
 				rotl_node(&stack);
+			else if (strcmp(opcode, "rotr") == 0)
+				rotr_node(&stack);
 			else
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n", line_num, opcode);
