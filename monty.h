@@ -49,7 +49,8 @@ void pint_node(stack_t *stack, unsigned int line_num);
 void pop_node(stack_t **stack, unsigned int line_num);
 void swap_element(stack_t **stack, unsigned int line_num);
 void add_element(stack_t **stack, unsigned int line_num);
-void divide_elements(stack_t **stack, unsigned int line_sum);
-void subtract_elements(stack_t **stack, unsigned int line_sum);
+void divide_elements(stack_t **stack, unsigned int line_num);
+void subtract_elements(stack_t **stack, unsigned int line_num);
+void multiply_elements(stack_t **stack, unsigned int line_num);
 
 #endif
