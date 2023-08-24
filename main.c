@@ -43,10 +43,7 @@ int main(int argc, char *argv[])
 						pushint_error(line_num);
 				}
 				else
-				{
-					fprintf(stderr, "L%d: usage: push integer\n", line_num);
-					exit(EXIT_FAILURE);
-				}
+					pushint_error(line_num);
 			}
 			else if (strcmp(opcode, "pall") == 0)
 				pall_node(&stack);
